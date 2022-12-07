@@ -18,6 +18,26 @@ body {
   overflow-x: hidden;
 }
 
+a:link {
+  text-decoration: none;
+  color: black;
+}
+
+a:visited {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  text-decoration: none;
+  color: black;
+}
+
+a:active {
+  text-decoration: none;
+  color: black;
+}
+
 .app {
   position: relative;
   width: 100%;
@@ -202,9 +222,6 @@ body {
   position: relative;
   width: 100%;
   padding: 20px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 30px;
 }
 
 .card_wrap .card_box {
@@ -249,9 +266,6 @@ body {
   position: relative;
   width: 100%;
   padding: 20px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 30px;
   margin-top: 10px;
 }
 
@@ -319,6 +333,40 @@ body {
 
 .list_order table tr td:nth-child(3) {
   text-align: center;
+}
+
+.list_link {
+  width: 100%;
+  display: block;
+}
+
+.list_link > tr {
+  width: 100%;
+  display: block;
+}
+
+.list_link > tr > td:nth-child(1) {
+  width: 40%;
+}
+
+.list_link > tr > td:nth-child(2) {
+  width: 20%;
+}
+
+.list_link > tr > td:nth-child(3) {
+  width: 20%;
+}
+
+.list_link > tr > td:nth-child(4) {
+  width: 10%;
+}
+
+.list_link_other > tr > td:nth-child(1) {
+  width: 90%;
+}
+
+.list_link_other > tr > td:nth-child(2) {
+  width: 10%;
 }
 
 .gender_wrap.box {
