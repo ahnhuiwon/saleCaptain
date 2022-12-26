@@ -1,4 +1,5 @@
-import './App.css';
+import './style/style/index.scss';
+import './style/style/mobile.scss';
 import Header from './component/Header.js';
 import Mainboard from './component/Mainboard';
 import 'bootstrap/dist/css/bootstrap.min.css';

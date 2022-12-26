@@ -1,10 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { AiOutlineMenu } from 'react-icons/ai';
 
 const Header=()=>{
+
     let copy_obj = {};
     let i=0;
+
+    const [menu_flag, set_menu_flag] = useState(false);
     const [dom_object, set_dom_object] = useState({
         first_li : true,
         second_li : false,
@@ -22,6 +26,11 @@ const Header=()=>{
         }
         set_dom_object(copy_obj);
     }
+
+    const open_menu = () => {
+        set_menu_flag(!menu_flag);
+    }
+
  
     return(
         <header>
@@ -43,8 +52,46 @@ const Header=()=>{
                             <span className="menu_wrap">Main Board</span>
                         </Link>
                     </li>
+                    <li className={dom_object.second_li === true ? "hovered" : ""}>
+                        <Link to="/fmkorea" onClick={ ()=>{ nav_load("second_li") } }>
+                            <span className="icon_wrap">
+                                <i className="xi-document xi-2x"></i>
+                            </span>
+                            <span className="menu_wrap">에펨코리아 - 핫딜</span>
+                        </Link>
+                    </li>
+                    <li className={dom_object.third_li === true ? "hovered" : ""}>
+                        <Link to="/ppomppu" onClick={ ()=>{ nav_load("third_li") } }>
+                            <span className="icon_wrap">
+                                <i className="xi-document xi-2x"></i>
+                            </span>
+                            <span className="menu_wrap">뽐뿌게시판</span>
+                        </Link>
+                    </li>
                 </ul>
             </nav>
+            <nav className="mobile_navigation_wrap">
+                <Link to="/" onClick={()=>{ set_menu_flag(false) }}>
+                    <h3>SaleCapt</h3>
+                </Link>
+                <div className="menu_wrap" onClick={()=>{
+                    open_menu()
+                }}>
+                    <AiOutlineMenu />
+                </div>
+            </nav>
+            <ul className="mobile_menu" style={ menu_flag ? { height : "134.391px" } : { height : "0" }}>
+                <li>
+                    <Link to="/ppomppu">
+                        뽐뿌게시판
+                    </Link>
+                </li>
+                <li>
+                    <Link to="/fmkorea">
+                        에펨코리아 - 핫딜
+                    </Link>
+                </li>
+            </ul>
         </header>
     )
 }

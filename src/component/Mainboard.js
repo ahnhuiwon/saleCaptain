@@ -1,9 +1,4 @@
 import React, { useEffect } from "react";
-import { useState } from "react";
-import { InputGroup, FormControl } from 'react-bootstrap';
-import Card_component from "./Card_component";
-import user_pic from "../img/user_info2.png";
-import axios from "axios";
 import FmkoreaBoard from "./board/FmkoreaBoard";
 import PpomppuBoard from "./board/PpomppuBoard";
 import useItemLoad from "../customHooks/useItemLoad";
@@ -11,11 +6,15 @@ import TotalCard from "./card/TotalCard";
 import FmkoreaCard from "./card/FmkoreaCard";
 import PpomppuCard from "./card/PpomppuCard";
 import CategoryCard from "./card/CategoryCard";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/swiper.min.css';
+import { DeviceWidth } from "../customHooks/useDevice";
 
 const Mainboard=()=>{
 
     const fm_list = useItemLoad('http://localhost:5000/fmkorea');
     const ppomppu_list = useItemLoad('http://localhost:5000/ppomppu');
+    const user_device = DeviceWidth();
 
     return(
         <div className="container">
@@ -27,8 +26,22 @@ const Mainboard=()=>{
                     <CategoryCard />
                 </div>
                 <div className="row friedns_list_wrap">
-                    <FmkoreaBoard data={fm_list} />
-                    <PpomppuBoard data={ppomppu_list} />
+                { 
+                    user_device ?
+                    <Swiper loop={true} spaceBetween={50}>
+                        <SwiperSlide>
+                            <FmkoreaBoard data={fm_list} />
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <PpomppuBoard data={ppomppu_list} />
+                        </SwiperSlide>
+                    </Swiper>
+                    :
+                    <>
+                        <FmkoreaBoard data={fm_list} />
+                        <PpomppuBoard data={ppomppu_list} />
+                    </>
+                }
                 </div>
             </div>
         </div>
