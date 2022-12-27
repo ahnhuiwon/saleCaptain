@@ -12,16 +12,16 @@ import { DeviceWidth } from "../customHooks/useDevice";
 
 const Mainboard=()=>{
 
-    const fm_list = useItemLoad('http://localhost:5000/fmkorea');
-    const ppomppu_list = useItemLoad('http://localhost:5000/ppomppu');
+    // const fm_list = useItemLoad('http://54.173.147.234:5000/fmkorea');
+    const ppomppu_list = useItemLoad('http://54.173.147.234:5000/ppomppu');
     const user_device = DeviceWidth();
 
     return(
         <div className="container">
             <div className="main_wrap asd">
                 <div className="row card_wrap">
-                    <TotalCard arr_length={Number(fm_list.length)+Number(ppomppu_list.length)} />
-                    <FmkoreaCard arr_length={Number(fm_list.length)} />
+                    <TotalCard arr_length={Number(ppomppu_list.length)} />
+                    {/* <FmkoreaCard arr_length={Number(fm_list.length)} /> */}
                     <PpomppuCard arr_length={Number(ppomppu_list.length)} />
                     <CategoryCard />
                 </div>
@@ -29,16 +29,16 @@ const Mainboard=()=>{
                 { 
                     user_device ?
                     <Swiper loop={true} spaceBetween={50}>
-                        <SwiperSlide>
+                        {/* <SwiperSlide>
                             <FmkoreaBoard data={fm_list} />
-                        </SwiperSlide>
+                        </SwiperSlide> */}
                         <SwiperSlide>
                             <PpomppuBoard data={ppomppu_list} />
                         </SwiperSlide>
                     </Swiper>
                     :
                     <>
-                        <FmkoreaBoard data={fm_list} />
+                        {/* <FmkoreaBoard data={fm_list} /> */}
                         <PpomppuBoard data={ppomppu_list} />
                     </>
                 }

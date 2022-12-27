@@ -71,8 +71,8 @@ const get_item = async () => {
   return arr_list;
 };
 
-cron.schedule("*/5 * * * * ", () => {
-  console.log("5분 마다 실행...");
+cron.schedule("* */1 * * * ", () => {
+  console.log("1시간 마다 실행...");
   get_item();
 });
 

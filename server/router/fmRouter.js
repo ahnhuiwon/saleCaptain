@@ -18,22 +18,26 @@ let scrap_result = {
 
 let temp_arr = [];
 
-const get_html = async () => {
-  try {
-    return await axios.get(
-      "https://www.fmkorea.com/search.php?mid=hotdeal&listStyle=webzine&search_keyword=%EB%AA%A8%EB%8B%88%ED%84%B0&search_target=title_content&category=1254381811"
-    );
-  } catch (err) {
-    console.log(err);
-  }
+const get_html = async() => {
+    try {
+      return await axios.get(
+        "https://www.fmkorea.com/search.php?mid=hotdeal&listStyle=webzine&search_keyword=%EB%AA%A8%EB%8B%88%ED%84%B0&search_target=title_content&category=1254381811",
+      )
+    } catch (err) {
+      console.log(err);
+    } 
 };
 
 const get_item = async () => {
   if (!html) {
-    html = await get_html();
-  }
+    try {
+      html = await get_html();
+    } catch(err) {
+      console.log(err);
+    }
+  } else {
 
-  let arr_list = [];
+  var arr_list = [];
   const $ = cheerio.load(html.data);
 
   $(".fm_best_widget ul li").map(async (index, element) => {
@@ -61,6 +65,7 @@ const get_item = async () => {
       ),
     };
   });
+}
 
   return arr_list;
 };
