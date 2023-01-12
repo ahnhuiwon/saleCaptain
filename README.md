@@ -12,6 +12,7 @@
       - react-router-dom@^6.0.2
       - bootstrap@^^5.1.3
       - axios@^1.2.1
+      - node-sass@^4.14.1
       
     - BACKEND
       - express@^4.18.2
