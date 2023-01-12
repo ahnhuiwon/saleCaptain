@@ -55,10 +55,10 @@
     
     ### 필수 구현 사항
     
-    - aws EC2 생성 및 배포
-    - node js, axios와 cheerio를 사용해 뽐뿌게시판(모니터) 스크랩 및 api 구현
-    - React로 프론트단 화면 구현 및 api 연동
-    - Bootstrap을 통해 모바일 반응형 화면 적용
+    - [x] aws EC2 생성 및 배포
+    - [x] node js, axios와 cheerio를 사용해 뽐뿌게시판(모니터) 스크랩 및 api 구현
+    - [x] React로 프론트단 화면 구현 및 api 연동
+    - [x] Bootstrap을 통해 모바일 반응형 화면 적용
 
     ### 추가 구현 사항
     
