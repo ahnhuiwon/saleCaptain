@@ -14,18 +14,22 @@ import { FilterClass } from "../utils/filterClass";
 const useItemLoad = (url) => {
 
     const [scrap_state, set_scrap_state] = useState([]);
+    const [loading_state, set_loading_state] = useState(false);
+
     let class_put, filter_put;
 
 
-    // 스크랩 axios 함수
+    // api 호출 함수
     const send_request = async () => {
         const { data, status, statusText } = await axios.get(url);
 
-        if(status === 200 && statusText === 'OK'){
+        if (status === 200 && statusText === 'OK') {
             filter_put = new FilterClass(data, url);
             const filter_value = filter_put.branch_filter();
 
             set_scrap_state(filter_value);
+
+            set_loading_state(false);
         } else {
             class_put = new Sweetalert_class();
             class_put.designated_alert();
@@ -34,7 +38,9 @@ const useItemLoad = (url) => {
 
 
     // useEffect
-    useEffect(()=>{
+    useEffect(() => {
+
+        set_loading_state(true);
 
         set_scrap_state([]);
 
@@ -45,7 +51,7 @@ const useItemLoad = (url) => {
         return () => clearInterval(refresh_ui);
     }, []);
 
-    return scrap_state;
+    return { scrap_state, loading_state };
 }
 
 export default useItemLoad;

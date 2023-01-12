@@ -1,12 +1,11 @@
 import React from "react";
 
-const PpomppuBoard = ({ data }) => {
-
+const PpomppuFoodBoard = ({ data }) => {
     return (
         <div className="col-lg-6">
             <div className="list_order">
                 <div className="list_header">
-                    <h2>뽐뿌게시판(모니터)</h2>
+                    <h2>뽐뿌게시판(식품/건강)</h2>
                 </div>
                 <table>
                     <tbody>
@@ -28,4 +27,4 @@ const PpomppuBoard = ({ data }) => {
     )
 }
 
-export default PpomppuBoard;
+export default PpomppuFoodBoard;

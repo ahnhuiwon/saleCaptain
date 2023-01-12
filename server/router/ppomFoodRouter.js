@@ -22,7 +22,7 @@ let temp_arr = [];
 const get_html = async () => {
   try {
     return await axios.get(
-      "https://www.ppomppu.co.kr/zboard/zboard.php?id=ppomppu&page_num=20&category=4&search_type=sub_memo&keyword=%B8%F0%B4%CF%C5%CD",
+      "https://www.ppomppu.co.kr/zboard/zboard.php?id=ppomppu&page=1&category=6&divpage=76",
       { responseType: "arraybuffer", responseEncoding: "binary" }
     );
   } catch (err) {

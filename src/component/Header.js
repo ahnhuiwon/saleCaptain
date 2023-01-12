@@ -49,7 +49,7 @@ const Header=()=>{
                             <span className="icon_wrap">
                                 <i className="xi-document xi-2x"></i>
                             </span>
-                            <span className="menu_wrap">Main Board</span>
+                            <span className="menu_wrap">뽐뿌게시판</span>
                         </Link>
                     </li>
                     <li className={dom_object.second_li === true ? "hovered" : ""}>
@@ -58,14 +58,6 @@ const Header=()=>{
                                 <i className="xi-document xi-2x"></i>
                             </span>
                             <span className="menu_wrap">에펨코리아 - 핫딜</span>
-                        </Link>
-                    </li>
-                    <li className={dom_object.third_li === true ? "hovered" : ""}>
-                        <Link to="/ppomppu" onClick={ ()=>{ nav_load("third_li") } }>
-                            <span className="icon_wrap">
-                                <i className="xi-document xi-2x"></i>
-                            </span>
-                            <span className="menu_wrap">뽐뿌게시판</span>
                         </Link>
                     </li>
                 </ul>

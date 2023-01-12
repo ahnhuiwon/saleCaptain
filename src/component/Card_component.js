@@ -3,7 +3,6 @@ import { useState } from "react";
 
 const Card_component=(props)=>{
     const [props_val, set_props_val] = useState(props.attr);
-    console.log(props_val.title);
 
     return(
         <div className="card_box">

@@ -50,6 +50,8 @@ export class FilterClass {
                 return this.fmkorea_filter();
             case 'ppomppu' : 
                 return this.ppomppu_filter();
+            case 'food' : 
+                return this.ppomppu_filter();
         }
     }
 }
